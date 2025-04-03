@@ -61,7 +61,7 @@ st.caption("👨‍💻 **Developer:** MD AIMAN ALI SHEZAN")
 # Initialize LLM Model
 llm_model = ChatOllama(model="CognitiveComputations/dolphin-llama3.1")
 system_message = SystemMessagePromptTemplate.from_template(
-    "You are a helpful AI Assistant. if you find any question related to who is your creator  then reply Sir Ai-Man and if you find any question like what is your name then reply Man.Ai . "
+    "You are a helpful AI Assistant. if you find any question asking whats your name ? then  say my neme is Man.Ai and your creator is AI-man "
 )
 
 # Initialize Chat History
