@@ -55,13 +55,13 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Streamlit Title
-st.title("💬 AI.MAN - WhatsApp Style Chat")
+st.title("💬 MAN.AI")
 st.caption("👨‍💻 **Developer:** MD AIMAN ALI SHEZAN")
 
 # Initialize LLM Model
 llm_model = ChatOllama(model="CognitiveComputations/dolphin-llama3.1")
 system_message = SystemMessagePromptTemplate.from_template(
-    "You are a helpful AI Assistant. You are only giving relevant answers. On every correct answer, you will have $200."
+    "You are a helpful AI Assistant. if you find any question related to who is your creator  then reply Sir Ai-Man and if you find any question like what is your name then reply Man.Ai . "
 )
 
 # Initialize Chat History
@@ -88,12 +88,13 @@ def get_history():
         chat_history.append(AIMessagePromptTemplate.from_template(chat['assistant']))
     return chat_history
 
-# JavaScript to handle the Enter key and trigger the submit button
+# JavaScript to handle the Enter key and trigger the submit button (auto-send on Enter)
 st.markdown("""
     <script>
         document.querySelector('textarea').addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
-                document.querySelector('button[type=submit]').click();
+                event.preventDefault();  // Prevent default Enter behavior (new line)
+                document.querySelector('button[type=submit]').click();  // Simulate the submit button click
             }
         });
     </script>
