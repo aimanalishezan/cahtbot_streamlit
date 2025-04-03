@@ -5,7 +5,7 @@ from langchain_core.prompts import (
     SystemMessagePromptTemplate, HumanMessagePromptTemplate, AIMessagePromptTemplate, ChatPromptTemplate
 )
 
-# WhatsApp-style CSS with black text for chat history
+# WhatsApp-style CSS with black text for chat history and added avatar images
 st.markdown("""
     <style>
         .chat-container {
@@ -15,7 +15,7 @@ st.markdown("""
         }
         .user-message {
             background-color: #dcf8c6;
-            color: black;  /* Set text color to black */
+            color: black;
             padding: 10px;
             border-radius: 10px;
             margin: 5px 0;
@@ -26,7 +26,7 @@ st.markdown("""
         }
         .assistant-message {
             background-color: #ffffff;
-            color: black;  /* Set text color to black */
+            color: black;
             padding: 10px;
             border-radius: 10px;
             margin: 5px 0;
@@ -45,7 +45,22 @@ st.markdown("""
         .user-container {
             align-items: flex-end !important;
         }
-        /* JavaScript for Enter key functionality */
+        .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .message {
+            display: flex;
+            align-items: center;
+        }
+        .user-message .message {
+            justify-content: flex-end;
+        }
+        .assistant-message .message {
+            justify-content: flex-start;
+        }
         .stTextInput textarea {
             width: 100%;
             padding: 10px;
@@ -61,7 +76,7 @@ st.caption("👨‍💻 **Developer:** MD AIMAN ALI SHEZAN")
 # Initialize LLM Model
 llm_model = ChatOllama(model="CognitiveComputations/dolphin-llama3.1")
 system_message = SystemMessagePromptTemplate.from_template(
-    "You are a helpful AI Assistant. if you find any question asking whats your name ? then  say my neme is Man.Ai and your creator is AI-man "
+    "You are a helpful AI Assistant. If you find any question asking about who you are like ' What's your name? ' , say 'My name is Man.Ai and my creator is Sir Ai-man and I develop by the team called Ai-ManS'"
 )
 
 # Initialize Chat History
@@ -110,19 +125,24 @@ if submit and text:
         # Save Chat to History
         st.session_state['chat_history'].append({'user': text, 'assistant': response})
 
-# Display Chat History
+# Display Chat History with Avatars
 st.markdown("### 🗨️ Chat History")
 
 for chat in reversed(st.session_state["chat_history"]):
+    # User message with avatar
     st.markdown(
         f'<div class="message-container user-container">'
-        f'<div class="user-message">👤 {chat["user"]}</div>'
-        f'</div>',
+        f'<div class="user-message">'
+        f'<div class="message"><img src="https://www.w3schools.com/howto/img_avatar.png" class="avatar"/>👤 {chat["user"]}</div>'
+        f'</div></div>',
         unsafe_allow_html=True
     )
+    
+    # Assistant message with avatar
     st.markdown(
         f'<div class="message-container">'
-        f'<div class="assistant-message">🤖 {chat["assistant"]}</div>'
-        f'</div>',
+        f'<div class="assistant-message">'
+        f'<div class="message"><img src="https://www.w3schools.com/howto/img_avatar2.png" class="avatar"/>🤖 {chat["assistant"]}</div>'
+        f'</div></div>',
         unsafe_allow_html=True
     )
