@@ -1,3 +1,6 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 import streamlit as st
 from langchain_ollama import ChatOllama
 from langchain_core.output_parsers import StrOutputParser
@@ -5,6 +8,8 @@ from langchain_core.prompts import (
     SystemMessagePromptTemplate, HumanMessagePromptTemplate, AIMessagePromptTemplate, ChatPromptTemplate
 )
 
+mdl=os.getenv('mod')
+sys=os.getenv('system')
 # WhatsApp-style CSS with black text for chat history and added avatar images
 st.markdown("""
     <style>
@@ -74,9 +79,9 @@ st.title("💬 MAN.AI")
 st.caption("👨‍💻 **Developer:** MD AIMAN ALI SHEZAN")
 
 # Initialize LLM Model
-llm_model = ChatOllama(model="CognitiveComputations/dolphin-llama3.1")
+llm_model = ChatOllama(model=mdl)
 system_message = SystemMessagePromptTemplate.from_template(
-    "You are a helpful AI Assistant. If you find any question asking about who you are like ' What's your name? ' , say 'My name is Man.Ai and my creator is Sir Ai-man and I develop by the team called Ai-ManS'"
+    sys
 )
 
 # Initialize Chat History
