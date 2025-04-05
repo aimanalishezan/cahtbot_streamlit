@@ -5,7 +5,7 @@ Awesome! Here's a polished and visually appealing version of your `README.md` fi
 ```markdown
 # 💬 MAN.AI — Your Personal AI Chatbot
 
-**MAN.AI** is a personalized AI assistant built using **Streamlit** and **LangChain**, powered by the `CognitiveComputations/dolphin-llama3.1` model via **Ollama**. With a sleek WhatsApp-style UI, avatars, and real-time memory, this bot provides smart and seamless conversations for any user.
+**MAN.AI** is a personalized AI assistant built using **Streamlit** and **LangChain**, powered by the `llama3.1` model via **Ollama**. With a sleek WhatsApp-style UI, avatars, and real-time memory, this bot provides smart and seamless conversations for any user.
 
 ---
 
@@ -16,15 +16,7 @@ Awesome! Here's a polished and visually appealing version of your `README.md` fi
 🗂 Chat history per session  
 👤 Avatar support for user and assistant  
 ⏩ Press `Enter` to send messages  
-💡 Custom AI persona via prompt templates
-
----
-
-## 🖼 Workflow Diagram
-
-> Here's how the chatbot works behind the scenes:
-
-![Workflow Diagram][chatbo streamlit](https://github.com/user-attachments/assets/08a2d74d-fcf4-4eb8-a3d8-21a80a8a6b57)
+💡 Custom AI persona via prompt template
 
 
 ---
@@ -71,20 +63,26 @@ manai-chatbot/
 
 ---
 
+## 🖼 Workflow Diagram
+
+> Here's how the chatbot works behind the scenes:
+![chatbo streamlit](https://github.com/user-attachments/assets/f62310f2-aee9-43f5-9094-af90fbb1cbe6)
+
+
+
 ## 🤖 AI Identity
 
 The assistant introduces itself as:
 
 > “My name is **Man.Ai** and my creator is **Sir Ai-man**. I was developed by the team called **Ai-ManS**.”
 
-This is configured in the `SystemMessagePromptTemplate` of the code.
 
 ---
 
 ## 🧑‍💻 Developer Info
 
 **👨‍💻 MD AIMAN ALI SHEZAN**  
-📧 [aimanalishezan@gmail.com](mailto:aimanalishezan@gmail.com)  
+📧 [aimanalishezanbusiness@gmail.com](mailto:aimanalishezanbusiness@gmail.com)  
 
 ---
 
